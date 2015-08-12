@@ -15,9 +15,11 @@
 
 import peasy.*;
 import controlP5.*;
-import wblut.hemesh.creators.*;
-import wblut.core.processing.*;
-import wblut.hemesh.core.*;
+import wblut.math.*;
+import wblut.processing.*;
+import wblut.core.*;
+import wblut.hemesh.*;
+import wblut.geom.*;
 import processing.opengl.*;
 
 ControlP5 gui;
@@ -37,7 +39,7 @@ int r3x = 512;  int r3y = 96;
 int mode = 1;    // 0 = live, 1 = normal, 2 = hi-res
 
 void setup() {
-  size(screenWidth, screenHeight, OPENGL);
+  size(displayWidth, displayHeight, OPENGL);
   render = new WB_Render(this);
   setupGUI();
   
@@ -82,8 +84,9 @@ void makeMesh() {
 }
 
 void export() {
-  String filename = "export/" + gui.get(Textfield.class,"meshName").getText() + ".stl";
-  HET_Export.saveToSTL(mesh, sketchPath(filename), 1.0);
+  String path = "export/";
+  String filename = gui.get(Textfield.class,"meshName").getText();
+  HET_Export.saveToSTL(mesh, sketchPath(path), filename);
 }
 
 void export_hi_res() {
