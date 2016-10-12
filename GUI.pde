@@ -69,16 +69,26 @@ boolean renderSpine = false;
 boolean renderMesh = true;
 
 // display options
-int GUI_SPIRAL_X = 10;          int GUI_SPIRAL_Y = 245;
-int GUI_ELLIPSE_X = 10;         int GUI_ELLIPSE_Y = 375;
-int GUI_ORIENTATION_X = 10;     int GUI_ORIENTATION_Y = 445;
-int GUI_SURFACE_X = 10;         int GUI_SURFACE_Y = 515;
-int GUI_COIL_X = 10;            int GUI_COIL_Y = 675;
-int GUI_MODE_X = 10;            int GUI_MODE_Y = 10;
-int GUI_UPDATE_X = 150;         int GUI_UPDATE_Y = 10;
-int GUI_WIREFRAME_X = 150;      int GUI_WIREFRAME_Y = 70;
-int GUI_COLORS_X = 10;          int GUI_COLORS_Y = 100;
-int GUI_PRESETS_X = 10;         int GUI_PRESETS_Y = 180;
+int GUI_SPIRAL_X = 10;          
+int GUI_SPIRAL_Y = 245;
+int GUI_ELLIPSE_X = 10;         
+int GUI_ELLIPSE_Y = 375;
+int GUI_ORIENTATION_X = 10;     
+int GUI_ORIENTATION_Y = 445;
+int GUI_SURFACE_X = 10;         
+int GUI_SURFACE_Y = 515;
+int GUI_COIL_X = 10;            
+int GUI_COIL_Y = 675;
+int GUI_MODE_X = 10;            
+int GUI_MODE_Y = 10;
+int GUI_UPDATE_X = 150;         
+int GUI_UPDATE_Y = 10;
+int GUI_WIREFRAME_X = 150;      
+int GUI_WIREFRAME_Y = 70;
+int GUI_COLORS_X = 10;          
+int GUI_COLORS_Y = 100;
+int GUI_PRESETS_X = 10;         
+int GUI_PRESETS_Y = 180;
 
 
 void setupGUI() 
@@ -89,109 +99,109 @@ void setupGUI()
 
   // labels
   gui.addTextlabel("spiral")       .setText("Spiral") 
-      .setPosition(GUI_SPIRAL_X, GUI_SPIRAL_Y)  
-      .setColorValue(0xffffff00) .setFont(createFont("Georgia",12));
+    .setPosition(GUI_SPIRAL_X, GUI_SPIRAL_Y)  
+    .setColorValue(0xffffff00) .setFont(createFont("Georgia", 12));
   gui.addTextlabel("ellipseRadii") .setText("Ellipse radii") 
-      .setPosition(GUI_ELLIPSE_X, GUI_ELLIPSE_Y) 
-      .setColorValue(0xffffff00) .setFont(createFont("Georgia",12));
+    .setPosition(GUI_ELLIPSE_X, GUI_ELLIPSE_Y) 
+    .setColorValue(0xffffff00) .setFont(createFont("Georgia", 12));
   gui.addTextlabel("orientation")  .setText("Orientation") 
-      .setPosition(GUI_ORIENTATION_X, GUI_ORIENTATION_Y) 
-      .setColorValue(0xffffff00) .setFont(createFont("Georgia",12));
+    .setPosition(GUI_ORIENTATION_X, GUI_ORIENTATION_Y) 
+    .setColorValue(0xffffff00) .setFont(createFont("Georgia", 12));
   gui.addTextlabel("surface")      .setText("Surface") 
-      .setPosition(GUI_SURFACE_X, GUI_SURFACE_Y) 
-      .setColorValue(0xffffff00) .setFont(createFont("Georgia",12));
+    .setPosition(GUI_SURFACE_X, GUI_SURFACE_Y) 
+    .setColorValue(0xffffff00) .setFont(createFont("Georgia", 12));
   gui.addTextlabel("coil_")     .setText("Coil") 
-      .setPosition(GUI_COIL_X, GUI_COIL_Y) 
-      .setColorValue(0xffffff00) .setFont(createFont("Georgia",12));
- // gui.addTextlabel("presetslabel") .setText("Presets") 
- //     .setPosition(GUI_PRESETS_X, GUI_PRESETS_Y) 
- //     .setColorValue(0xffffff00) .setFont(createFont("Georgia",12));
+    .setPosition(GUI_COIL_X, GUI_COIL_Y) 
+    .setColorValue(0xffffff00) .setFont(createFont("Georgia", 12));
+  // gui.addTextlabel("presetslabel") .setText("Presets") 
+  //     .setPosition(GUI_PRESETS_X, GUI_PRESETS_Y) 
+  //     .setColorValue(0xffffff00) .setFont(createFont("Georgia",12));
   gui.addTextlabel("colors") .setText("Color") 
-      .setPosition(GUI_COLORS_X, GUI_COLORS_Y) 
-      .setColorValue(0xffffff00) .setFont(createFont("Georgia",12));
+    .setPosition(GUI_COLORS_X, GUI_COLORS_Y) 
+    .setColorValue(0xffffff00) .setFont(createFont("Georgia", 12));
   gui.addTextlabel("livemode") .setText("Mode") 
-      .setPosition(GUI_MODE_X, GUI_MODE_Y) 
-      .setColorValue(0xffffff00);
-      
+    .setPosition(GUI_MODE_X, GUI_MODE_Y) 
+    .setColorValue(0xffffff00);
+
   // bang to update mesh
   gui.addBang("bang")  .setPosition(GUI_UPDATE_X, GUI_UPDATE_Y)  
-      .setSize(40, 40)  .setTriggerEvent(Bang.RELEASE)  .setLabel("update");
+    .setSize(40, 40)  .setTriggerEvent(Bang.RELEASE)  .setLabel("update");
 
   // spiral
-  gui.addSlider("turns")   .setPosition(GUI_SPIRAL_X, GUI_SPIRAL_Y+15)        .setRange(0, 10 * TWO_PI)   .setAutoUpdate(true);
-  gui.addSlider("alpha")   .setPosition(GUI_SPIRAL_X, GUI_SPIRAL_Y+30)        .setRange(0, PI/2)            .setAutoUpdate(true);
-  gui.addSlider("beta")    .setPosition(GUI_SPIRAL_X, GUI_SPIRAL_Y+45)        .setRange(-PI, PI)          .setAutoUpdate(true);
-  gui.addSlider("k")       .setPosition(GUI_SPIRAL_X, GUI_SPIRAL_Y+60)        .setRange(0, PI)             .setAutoUpdate(true);
-  gui.addSlider("kxy")       .setPosition(GUI_SPIRAL_X, GUI_SPIRAL_Y+75)      .setRange(0,PI)             .setAutoUpdate(true);
-  gui.addSlider("offset_xy")       .setPosition(GUI_SPIRAL_X, GUI_SPIRAL_Y+90)      .setRange(0,100)             .setAutoUpdate(true);
-  gui.addSlider("offset_z")       .setPosition(GUI_SPIRAL_X, GUI_SPIRAL_Y+105)      .setRange(0, 10)             .setAutoUpdate(true);
- 
- 
+  gui.addSlider("turns")   .setPosition(GUI_SPIRAL_X, GUI_SPIRAL_Y+15)        .setRange(0, 10 * TWO_PI)   ;
+  gui.addSlider("alpha")   .setPosition(GUI_SPIRAL_X, GUI_SPIRAL_Y+30)        .setRange(0, PI/2)            ;
+  gui.addSlider("beta")    .setPosition(GUI_SPIRAL_X, GUI_SPIRAL_Y+45)        .setRange(-PI, PI)        ;
+  gui.addSlider("k")       .setPosition(GUI_SPIRAL_X, GUI_SPIRAL_Y+60)        .setRange(0, PI)             ;
+  gui.addSlider("kxy")       .setPosition(GUI_SPIRAL_X, GUI_SPIRAL_Y+75)      .setRange(0, PI)           ;
+  gui.addSlider("offset_xy")       .setPosition(GUI_SPIRAL_X, GUI_SPIRAL_Y+90)      .setRange(0, 100)             ;
+  gui.addSlider("offset_z")       .setPosition(GUI_SPIRAL_X, GUI_SPIRAL_Y+105)      .setRange(0, 10)             ;
+
+
   // ellipse radius
-  gui.addSlider("a")       .setPosition(GUI_ELLIPSE_X, GUI_ELLIPSE_Y+15)       .setRange(0, 50)      .setAutoUpdate(true);
-  gui.addSlider("b")       .setPosition(GUI_ELLIPSE_X, GUI_ELLIPSE_Y+30)       .setRange(0, 50)      .setAutoUpdate(true);
-  gui.addSlider("ripple_freq")       .setPosition(GUI_ELLIPSE_X, GUI_ELLIPSE_Y+45)       .setRange(0, 500)      .setAutoUpdate(true);
-  gui.addSlider("ripple_depth")       .setPosition(GUI_ELLIPSE_X, GUI_ELLIPSE_Y+60)       .setRange(0, 25)      .setAutoUpdate(true);
-  
+  gui.addSlider("a")       .setPosition(GUI_ELLIPSE_X, GUI_ELLIPSE_Y+15)       .setRange(0, 50)      ;
+  gui.addSlider("b")       .setPosition(GUI_ELLIPSE_X, GUI_ELLIPSE_Y+30)       .setRange(0, 50)      ;
+  gui.addSlider("ripple_freq")       .setPosition(GUI_ELLIPSE_X, GUI_ELLIPSE_Y+45)       .setRange(0, 500)      ;
+  gui.addSlider("ripple_depth")       .setPosition(GUI_ELLIPSE_X, GUI_ELLIPSE_Y+60)       .setRange(0, 25)      ;
+
   // ellipse orientation
-  gui.addSlider("mu")      .setPosition(GUI_ORIENTATION_X, GUI_ORIENTATION_Y+15)       .setRange(0, TWO_PI)  .setAutoUpdate(true);
-  gui.addSlider("omega")   .setPosition(GUI_ORIENTATION_X, GUI_ORIENTATION_Y+30)       .setRange(0, TWO_PI)  .setAutoUpdate(true);
-  gui.addSlider("phi")     .setPosition(GUI_ORIENTATION_X, GUI_ORIENTATION_Y+45)       .setRange(0, TWO_PI)    .setAutoUpdate(true);
-  
-  gui.addSlider("twist_phi")     .setPosition(GUI_ORIENTATION_X, GUI_ORIENTATION_Y+60)       .setRange(0, 20)    .setAutoUpdate(true);
-  
+  gui.addSlider("mu")      .setPosition(GUI_ORIENTATION_X, GUI_ORIENTATION_Y+15)       .setRange(0, TWO_PI)  ;
+  gui.addSlider("omega")   .setPosition(GUI_ORIENTATION_X, GUI_ORIENTATION_Y+30)       .setRange(0, TWO_PI)  ;
+  gui.addSlider("phi")     .setPosition(GUI_ORIENTATION_X, GUI_ORIENTATION_Y+45)       .setRange(0, TWO_PI)    ;
+
+  gui.addSlider("twist_phi")     .setPosition(GUI_ORIENTATION_X, GUI_ORIENTATION_Y+60)       .setRange(0, 20)    ;
+
   //ellipse parameter modulation using sine
-  gui.addSlider("depth_phi")     .setPosition(GUI_ORIENTATION_X+150, GUI_ORIENTATION_Y+15)       .setRange(0,1)    .setAutoUpdate(true);
-  gui.addSlider("freq_phi")     .setPosition(GUI_ORIENTATION_X+150, GUI_ORIENTATION_Y+30)       .setRange(0,10)    .setAutoUpdate(true);
-  gui.addSlider("depth_omega")     .setPosition(GUI_ORIENTATION_X+150, GUI_ORIENTATION_Y+45)       .setRange(0,1)    .setAutoUpdate(true);
-  gui.addSlider("freq_omega")     .setPosition(GUI_ORIENTATION_X+150, GUI_ORIENTATION_Y+60)       .setRange(0,10)    .setAutoUpdate(true);
-  gui.addSlider("depth_mu")     .setPosition(GUI_ORIENTATION_X+150, GUI_ORIENTATION_Y+75)       .setRange(0,1)    .setAutoUpdate(true);
-  gui.addSlider("freq_mu")     .setPosition(GUI_ORIENTATION_X+150, GUI_ORIENTATION_Y+90)       .setRange(0,TWO_PI)    .setAutoUpdate(true);
+  gui.addSlider("depth_phi")     .setPosition(GUI_ORIENTATION_X+150, GUI_ORIENTATION_Y+15)       .setRange(0, 1)    ;
+  gui.addSlider("freq_phi")     .setPosition(GUI_ORIENTATION_X+150, GUI_ORIENTATION_Y+30)       .setRange(0, 10)    ;
+  gui.addSlider("depth_omega")     .setPosition(GUI_ORIENTATION_X+150, GUI_ORIENTATION_Y+45)       .setRange(0, 1)    ;
+  gui.addSlider("freq_omega")     .setPosition(GUI_ORIENTATION_X+150, GUI_ORIENTATION_Y+60)       .setRange(0, 10)    ;
+  gui.addSlider("depth_mu")     .setPosition(GUI_ORIENTATION_X+150, GUI_ORIENTATION_Y+75)       .setRange(0, 1)    ;
+  gui.addSlider("freq_mu")     .setPosition(GUI_ORIENTATION_X+150, GUI_ORIENTATION_Y+90)       .setRange(0, TWO_PI)    ;
 
 
   // surface
-  
-   gui.addSlider("ridge_freq")       .setPosition(GUI_SURFACE_X, GUI_SURFACE_Y+15)       .setRange(0, 250)       .setAutoUpdate(true);
-  gui.addSlider("ridge_depth")       .setPosition(GUI_SURFACE_X, GUI_SURFACE_Y+30)       .setRange(0, 10)       .setAutoUpdate(true);
-  
-  
-  gui.addSlider("L_1")       .setPosition(GUI_SURFACE_X, GUI_SURFACE_Y+45)       .setRange(0, 20)       .setAutoUpdate(true);
-  gui.addSlider("P_1")       .setPosition(GUI_SURFACE_X, GUI_SURFACE_Y+60)       .setRange(0, TWO_PI)       .setAutoUpdate(true);
-  gui.addSlider("W1_1")      .setPosition(GUI_SURFACE_X, GUI_SURFACE_Y+75)       .setRange(0, 5)      .setAutoUpdate(true);
-  gui.addSlider("W2_1")      .setPosition(GUI_SURFACE_X, GUI_SURFACE_Y+90)       .setRange(0, 10)    .setAutoUpdate(true);
-  gui.addSlider("N_1")       .setPosition(GUI_SURFACE_X, GUI_SURFACE_Y+105)       .setRange(-PI, PI)      .setAutoUpdate(true);
 
-  gui.addSlider("L_2")       .setPosition(GUI_SURFACE_X+115, GUI_SURFACE_Y+45)       .setRange(0, 20)       .setAutoUpdate(true);
-  gui.addSlider("P_2")       .setPosition(GUI_SURFACE_X+115, GUI_SURFACE_Y+60)       .setRange(0, TWO_PI)       .setAutoUpdate(true);
-  gui.addSlider("W1_2")      .setPosition(GUI_SURFACE_X+115, GUI_SURFACE_Y+75)       .setRange(0, 5)      .setAutoUpdate(true);
-  gui.addSlider("W2_2")      .setPosition(GUI_SURFACE_X+115, GUI_SURFACE_Y+90)       .setRange(0, 10)    .setAutoUpdate(true);
-  gui.addSlider("N_2")       .setPosition(GUI_SURFACE_X+115, GUI_SURFACE_Y+105)       .setRange(-PI, PI)      .setAutoUpdate(true);
-  
-  gui.addSlider("L_3")       .setPosition(GUI_SURFACE_X+230, GUI_SURFACE_Y+45)       .setRange(0, 20)       .setAutoUpdate(true);
-  gui.addSlider("P_3")       .setPosition(GUI_SURFACE_X+230, GUI_SURFACE_Y+60)       .setRange(0, TWO_PI)       .setAutoUpdate(true);
-  gui.addSlider("W1_3")      .setPosition(GUI_SURFACE_X+230, GUI_SURFACE_Y+75)       .setRange(0, 5)      .setAutoUpdate(true);
-  gui.addSlider("W2_3")      .setPosition(GUI_SURFACE_X+230, GUI_SURFACE_Y+90)       .setRange(0, 10)    .setAutoUpdate(true);
-  gui.addSlider("N_3")       .setPosition(GUI_SURFACE_X+230, GUI_SURFACE_Y+105)       .setRange(-PI, PI)      .setAutoUpdate(true);
-  
-  gui.addSlider("L_4")       .setPosition(GUI_SURFACE_X+345, GUI_SURFACE_Y+45)       .setRange(0, 20)       .setAutoUpdate(true);
-  gui.addSlider("P_4")       .setPosition(GUI_SURFACE_X+345, GUI_SURFACE_Y+60)       .setRange(0, TWO_PI)       .setAutoUpdate(true);
-  gui.addSlider("W1_4")      .setPosition(GUI_SURFACE_X+345, GUI_SURFACE_Y+75)       .setRange(0, 5)      .setAutoUpdate(true);
-  gui.addSlider("W2_4")      .setPosition(GUI_SURFACE_X+345, GUI_SURFACE_Y+90)       .setRange(0, 10)    .setAutoUpdate(true);
-  gui.addSlider("N_4")       .setPosition(GUI_SURFACE_X+345, GUI_SURFACE_Y+105)       .setRange(-PI, PI)      .setAutoUpdate(true);
-  
-  gui.addSlider("N")         .setPosition(GUI_SURFACE_X, GUI_SURFACE_Y+120)       .setRange(0, 30)      .setAutoUpdate(true);
-  
-  
+  gui.addSlider("ridge_freq")       .setPosition(GUI_SURFACE_X, GUI_SURFACE_Y+15)       .setRange(0, 250)       ;
+  gui.addSlider("ridge_depth")       .setPosition(GUI_SURFACE_X, GUI_SURFACE_Y+30)       .setRange(0, 10)       ;
+
+
+  gui.addSlider("L_1")       .setPosition(GUI_SURFACE_X, GUI_SURFACE_Y+45)       .setRange(0, 20)       ;
+  gui.addSlider("P_1")       .setPosition(GUI_SURFACE_X, GUI_SURFACE_Y+60)       .setRange(0, TWO_PI)       ;
+  gui.addSlider("W1_1")      .setPosition(GUI_SURFACE_X, GUI_SURFACE_Y+75)       .setRange(0, 5)      ;
+  gui.addSlider("W2_1")      .setPosition(GUI_SURFACE_X, GUI_SURFACE_Y+90)       .setRange(0, 10)    ;
+  gui.addSlider("N_1")       .setPosition(GUI_SURFACE_X, GUI_SURFACE_Y+105)       .setRange(-PI, PI)      ;
+
+  gui.addSlider("L_2")       .setPosition(GUI_SURFACE_X+115, GUI_SURFACE_Y+45)       .setRange(0, 20)       ;
+  gui.addSlider("P_2")       .setPosition(GUI_SURFACE_X+115, GUI_SURFACE_Y+60)       .setRange(0, TWO_PI)       ;
+  gui.addSlider("W1_2")      .setPosition(GUI_SURFACE_X+115, GUI_SURFACE_Y+75)       .setRange(0, 5)      ;
+  gui.addSlider("W2_2")      .setPosition(GUI_SURFACE_X+115, GUI_SURFACE_Y+90)       .setRange(0, 10)    ;
+  gui.addSlider("N_2")       .setPosition(GUI_SURFACE_X+115, GUI_SURFACE_Y+105)       .setRange(-PI, PI)      ;
+
+  gui.addSlider("L_3")       .setPosition(GUI_SURFACE_X+230, GUI_SURFACE_Y+45)       .setRange(0, 20)       ;
+  gui.addSlider("P_3")       .setPosition(GUI_SURFACE_X+230, GUI_SURFACE_Y+60)       .setRange(0, TWO_PI)       ;
+  gui.addSlider("W1_3")      .setPosition(GUI_SURFACE_X+230, GUI_SURFACE_Y+75)       .setRange(0, 5)      ;
+  gui.addSlider("W2_3")      .setPosition(GUI_SURFACE_X+230, GUI_SURFACE_Y+90)       .setRange(0, 10)    ;
+  gui.addSlider("N_3")       .setPosition(GUI_SURFACE_X+230, GUI_SURFACE_Y+105)       .setRange(-PI, PI)      ;
+
+  gui.addSlider("L_4")       .setPosition(GUI_SURFACE_X+345, GUI_SURFACE_Y+45)       .setRange(0, 20)       ;
+  gui.addSlider("P_4")       .setPosition(GUI_SURFACE_X+345, GUI_SURFACE_Y+60)       .setRange(0, TWO_PI)       ;
+  gui.addSlider("W1_4")      .setPosition(GUI_SURFACE_X+345, GUI_SURFACE_Y+75)       .setRange(0, 5)      ;
+  gui.addSlider("W2_4")      .setPosition(GUI_SURFACE_X+345, GUI_SURFACE_Y+90)       .setRange(0, 10)    ;
+  gui.addSlider("N_4")       .setPosition(GUI_SURFACE_X+345, GUI_SURFACE_Y+105)       .setRange(-PI, PI)      ;
+
+  gui.addSlider("N")         .setPosition(GUI_SURFACE_X, GUI_SURFACE_Y+120)       .setRange(0, 30)      ;
+
+
   // coil parameter
   gui.addRadioButton("coil")
-     .setPosition(GUI_COIL_X, GUI_COIL_Y+15)
-     .setSize(20,20)
-     .setColorForeground(color(120))
-     .setColorActive(color(255))
-     .setColorLabel(color(255))
-     .setItemsPerRow(1)
-     .addItem("dextral",1)
-     .addItem("sinistral",2);
+    .setPosition(GUI_COIL_X, GUI_COIL_Y+15)
+    .setSize(20, 20)
+    .setColorForeground(color(120))
+    .setColorActive(color(255))
+    .setColorLabel(color(255))
+    .setItemsPerRow(1)
+    .addItem("dextral", 1)
+    .addItem("sinistral", 2);
 
   // presets
   String[] presetNames = new String[] {
@@ -200,37 +210,37 @@ void setupGUI()
     "Conch", "Barrell", "OstrichFoot", "SerpentineConch", "Lapa", 
     "SnailShell", "ShellHelmetHungarian" };
 
-  DropdownList presets = gui.addDropdownList("list-presets");
-  presets.setPosition(GUI_PRESETS_X, GUI_PRESETS_Y+30);
-  for (int i = 0; i < presetParams.size(); i++)
-    presets.addItem(presetTitles.get(i), i);
-  presets.captionLabel().set("presets");
-  presets.setItemHeight(20);
-  presets.setBarHeight(15);
-  presets.setWidth(200);
-  presets.captionLabel().style().marginTop = 3;
-  presets.captionLabel().style().marginLeft = 3;
-  presets.valueLabel().style().marginTop = 3;
-  presets.setColorBackground(color(60));
-  presets.setColorActive(color(255, 128));
+  //DropdownList presets = gui.addDropdownList("list-presets");
+  //presets.setPosition(GUI_PRESETS_X, GUI_PRESETS_Y+30);
+  //for (int i = 0; i < presetParams.size(); i++)
+  //  presets.addItem(presetTitles.get(i), i);
+  ////presets.captionLabel().set("presets");
+  //presets.setItemHeight(20);
+  //presets.setBarHeight(15);
+  //presets.setWidth(200);
+  ////presets.captionLabel().style().marginTop = 3;
+  ////presets.captionLabel().style().marginLeft = 3;
+  ////presets.valueLabel().style().marginTop = 3;
+  //presets.setColorBackground(color(60));
+  //presets.setColorActive(color(255, 128));
 
   // color picker
   gui.addColorPicker("picker")  
-     .setPosition(GUI_COLORS_X, GUI_COLORS_Y+15)
-     .setColorValue(color(255, 128, 0, 128));
+    .setPosition(GUI_COLORS_X, GUI_COLORS_Y+15)
+    .setColorValue(color(255, 128, 0, 128));
 
   // live mode
   gui.addRadioButton("mode")
-     .setPosition(GUI_MODE_X, GUI_MODE_Y+15)
-     .setSize(20,20)
-     .setColorForeground(color(120))
-     .setColorActive(color(255))
-     .setColorLabel(color(255))
-     .setItemsPerRow(1)
-     .addItem("live",0)
-     .addItem("normal",1)
-     .addItem("hi-res (slow)",2);
- 
+    .setPosition(GUI_MODE_X, GUI_MODE_Y+15)
+    .setSize(20, 20)
+    .setColorForeground(color(120))
+    .setColorActive(color(255))
+    .setColorLabel(color(255))
+    .setItemsPerRow(1)
+    .addItem("live", 0)
+    .addItem("normal", 1)
+    .addItem("hi-res (slow)", 2);
+
   // wireframe toggle
   gui.addCheckBox("wire")
     .setPosition(GUI_WIREFRAME_X, GUI_WIREFRAME_Y)
@@ -242,16 +252,16 @@ void setupGUI()
     .setSpacingColumn(50)
     .setSpacingRow(20)
     .addItem("wireframe", 0);
-    
+
   // export to STL
-  PFont font = createFont("arial",12);
+  PFont font = createFont("arial", 12);
   gui.addTextfield("meshName")
-   .setPosition(width-120,10)
-   .setSize(100,20)
-   .setText("MyShell")
-   .setFont(font)
-   .setFocus(true)
-   .setColor(color(255,0,0));
+    .setPosition(width-120, 10)
+    .setSize(100, 20)
+    .setText("MyShell")
+    .setFont(font)
+    .setFocus(true)
+    .setColor(color(255, 0, 0));
 
   gui.addBang("export")
     .setPosition(width-120, 60)
@@ -261,9 +271,9 @@ void setupGUI()
     .setPosition(width-120, 130)
     .setSize(40, 40);
 
-  gui.addBang("save_preset")
-    .setPosition(width-120, 200)
-    .setSize(40, 40);
+  //gui.addBang("save_preset")
+  //  .setPosition(width-120, 200)
+  //  .setSize(40, 40);
 }
 
 // color picker
@@ -282,20 +292,17 @@ void controlEvent(ControlEvent theEvent) {
       D = -1;
       makeMesh();
     }
-  }
-  else if (theEvent.getName().equals("mode")) {
-     mode = (int) theEvent.getValue();
-     if      (mode==0) makeMesh(r0x, r0y); 
-     else if (mode==1) makeMesh(r1x, r1y); 
-     else if (mode==2) makeMesh(r2x, r2y);
-  }
-  else if (theEvent.isGroup()) {
+  } else if (theEvent.getName().equals("mode")) {
+    mode = (int) theEvent.getValue();
+    if      (mode==0) makeMesh(r0x, r0y); 
+    else if (mode==1) makeMesh(r1x, r1y); 
+    else if (mode==2) makeMesh(r2x, r2y);
+  } else if (theEvent.isGroup()) {
     if (theEvent.getGroup().getName().equals("wire")) {
       if (theEvent.getGroup().getValue() == 0) {
         meshFill = !meshFill;
       }
-    }
-    else if (theEvent.getGroup().getName().equals("list-presets")) {
+    } else if (theEvent.getGroup().getName().equals("list-presets")) {
       int idxPreset = (int) theEvent.getGroup().getValue();
       if      (idxPreset== 0) BoatEarMoon();
       else if (idxPreset== 1) HorseConch();
@@ -323,4 +330,3 @@ void keyPressed() {
     makeMesh();
   }
 }
-

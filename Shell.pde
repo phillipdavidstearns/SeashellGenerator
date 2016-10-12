@@ -42,7 +42,7 @@ void generateShell(int n, int m)
       if (W1_1==0 || W2_1==0 || N==0) surfrad_1 = 0;
       else {
         float lt_1 = ((TWO_PI / N) + N_1) * ( N*theta / TWO_PI - int(N*theta / TWO_PI) );
-        surfrad_1 = L_1 * exp( -( pow(2*(s-P_1)/( pow( sin(lt_1), W1_1 ) ), 2) + pow(2*lt_1/W2_1, 2) ) );
+        surfrad_1 = L_1 * exp( -( pow(2*(s-P_1)/W1_1, 2) + pow(2*lt_1/W2_1, 2) ) );
       }
 
       //spike/ridge #2
@@ -136,4 +136,3 @@ void generateMesh(int n, int m)
   creator.setDuplicate(false);
   mesh = new HE_Mesh(creator);
 }
-

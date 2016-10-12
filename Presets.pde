@@ -148,4 +148,3 @@ void ShellHelmetHungarian() {
   D=1; alpha=radians(43); beta=radians(50); phi=radians(-10); mu=radians(1); omega=radians(-30); A=9; a=8; b=7; L=0; P=0; W1=0; W2=0; N=0;
   if (mode==0) makeMesh(r0x, r0y); else if (mode==1) makeMesh(r1x, r1y); else if (mode==2) makeMesh(r2x, r2y);
 }
-
