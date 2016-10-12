@@ -1,25 +1,16 @@
-// Seashell generator -- July 2012 -- Gene Kogan
-// =============================================================
-// 
-// Generates mesh of a classical mollusk shell, with about 15 presets.
-//
-// Controllers:
-//  - 15 parameters for spirality, orientation, and surface features
-//  - view as polygons, wireframe mesh
-//  - export to STL for 3d fabrication
-//  - PeasyCam navigation; click-drag to rotate, two finger scroll to zoom
-//
-// Derivation by Jorge Picado: http://www.mat.uc.pt/~picado/conchas/eng/article.pdf
-// Presets: http://www.mat.uc.pt/~picado/conchas/exemplosindex.html
-//
+// Seashell generator
+// ===========================================================
+
+
+// http://www.mat.uc.pt/~picado/conchas/eng/article.pdf
+// http://www.mat.uc.pt/~picado/conchas/exemplosindex.html
+// dextral / sinistral
 
 import peasy.*;
 import controlP5.*;
-import wblut.math.*;
-import wblut.processing.*;
-import wblut.core.*;
-import wblut.hemesh.*;
-import wblut.geom.*;
+import wblut.hemesh.creators.*;
+import wblut.core.processing.*;
+import wblut.hemesh.core.*;
 import processing.opengl.*;
 
 ControlP5 gui;
@@ -33,14 +24,19 @@ PVector[][] shell;
 // resolution for each mode
 int r0x =  64;  int r0y = 16;
 int r1x = 128;  int r1y = 32;
-int r2x = 256;  int r2y = 64;
-int r3x = 512;  int r3y = 96;
+int r2x = 256;  int r2y = 128;
+int r3x = 512;  int r3y = 512;
 
 int mode = 1;    // 0 = live, 1 = normal, 2 = hi-res
+
+String presetsFile = "data/presets.txt";
+ArrayList<String> presetParams = new ArrayList<String>();
+ArrayList<String> presetTitles = new ArrayList<String>();
 
 void setup() {
   size(displayWidth, displayHeight, OPENGL);
   render = new WB_Render(this);
+  loadPresets();
   setupGUI();
   
   // set up camera
@@ -48,7 +44,7 @@ void setup() {
   cam.setMinimumDistance(10);
   cam.setMaximumDistance(2500);
 
-  PreciousWentleTrap();
+  makeMesh();
 }
 
 void draw() {
@@ -84,12 +80,11 @@ void makeMesh() {
 }
 
 void export() {
-  String path = "export/";
-  String filename = gui.get(Textfield.class,"meshName").getText();
-  HET_Export.saveToSTL(mesh, sketchPath(path), filename);
+  String filename = "export/" + gui.get(Textfield.class,"meshName").getText() + ".stl";
+  HET_Export.saveToSTL(mesh, sketchPath(filename), 1.0);
 }
 
 void export_hi_res() {
-  makeMesh(r3x, r3y);
+  makeMesh(r2x, r2y);
   export();
 }
